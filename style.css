@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+:root{
+    --card-width-lg: 157px;
+    --card-height-lg: 220px;
+
+    --card-width-sm:120px;
+    --card-height-sm:168px;
+
+    --num-cards:4;
+
+    --card-horizontal-space-lg: 100px;
+    --card-horizontal-space-sm: 50px;
+
+    --badge-bg-color:darkgrey;
+    --primary-color: black;
+    --secondary-color: #ffffff;
+
+    --primary-font: 'Quicksand', sans-serif;
+
+    --badge-bg-color:darkgrey;
+   
+}
+
+body{
+    height: 100vh;
+    font-family: var(--primary-font);
+    /* background-color: rgb(61, 25, 49); */
+    /* color: white; */
+}
+
+main{
+    height: 80%; /* Made Chage Here */
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid brown; */
+}
+
+.card-container{
+    position: relative;
+    height: 100%; 
+    width: calc(var(--card-width-lg) * (var(--num-cards) / 2) + var(--card-horizontal-space-lg));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "a b"
+                         "c d";
+    /* border: 1px solid rgb(145, 3, 3); */
+}
+
+.card-pos-a{
+    grid-area: a;
+    /* border: 1px solid black; */
+    /* background-color: grey; */
+}
+
+.card-pos-b{
+    grid-area: b;
+    /* border: 1px solid black; */
+    /* background-color: rgb(180, 167, 227); */
+}
+
+.card-pos-c{
+    grid-area: c;
+    /* border: 1px solid black;
+    background-color: rgb(244, 243, 158); */
+}
+
+.card-pos-d{
+    grid-area: d;
+    /* border: 1px solid black; */
+    /* background-color: rgb(234, 155, 209); */
+}
+
+.card-pos-a, .card-pos-b, .card-pos-c, .card-pos-a, .card-pos-a, .card-pos-d{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    position: absolute;
+    width: var(--card-width-lg);
+    height: var(--card-height-lg);
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.6s ease-in-out;
+}
+
+.card-inner{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-back, .card-front{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-img{
+    height: 100%;
+}
+
+.card-back{
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-inner{
+    transform: rotateY(180deg);
+}
+.card-inner.flip-it{
+    transform: rotateY(180deg);
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.container{                             /*made change here*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* .container2{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+} */
+
+.current-status{
+    font-size:1.5rem;
+    text-align: center;
+}
+
+.header-title-container{
+    display: flex;
+    justify-content: center;
+}
+
+.header-round-info-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-img-container, .header-score-container, .header-round-container, .header-button-container, .header-status-info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-img-container, .header-score-container, .header-round-container{
+    width: 150px;
+}
+
+.header-img{
+    height: 75px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transform: rotate(-3deg);
+}
+.badge{
+    background-color: var(--badge-bg-color);
+    color: var(--secondary-color);
+    padding: 2px 10px 3px;
+    border-radius: 15px;
+}
+.game-play-button-container{
+    width: 150px;
+    height: 70px;
+}
+
+/* CSS */
+#playGame {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: none;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 40px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    /* width: 15%; */
+    will-change: transform;
+    animation: game-play-button-fade-in 10s 1;
+  }
+  
+#playGame:disabled {
+  pointer-events: none;
+}
+
+#playGame:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+#playGame:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+@keyframes game-play-button-fade-in{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.card.shuffle-left{
+    transform: translateX(300px) translateY(40px);
+}
+.card.shuffle-right{
+    transform: translateX(-350px) translateY(-40px);
+}
+.card.fly-in{
+    transform: translateX(-1000px) translateY(-600px) rotate(45deg);
+}

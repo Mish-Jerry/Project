@@ -1,10 +1,10 @@
-const cardObjectDefinitions = [{id:1, imagePath:'D:/Project/Hunt The Ace/king.jpg'},
-                               {id:2, imagePath:'D:/Project/Hunt The Ace/QueenDiamonds.png'},
-                               {id:3, imagePath:'D:/Project/Hunt The Ace/jack.png'},
-                               {id:4, imagePath:'D:/Project/Hunt The Ace/card-AceSpades.png'}]
+const cardObjectDefinitions = [{id:1, imagePath:'D:/Project/CardBlitz/king.jpg'},
+                               {id:2, imagePath:'D:/Project/CardBlitz/QueenDiamonds.png'},
+                               {id:3, imagePath:'D:/Project/CardBlitz/jack.png'},
+                               {id:4, imagePath:'D:/Project/CardBlitz/card-AceSpades.png'}]
 
 const aceId = 4                               
-const cardBackImgPath = 'D:/Project/Hunt The Ace/card-back-Blue.png'
+const cardBackImgPath = 'D:/Project/CardBlitz/card-back-Blue.png'
 
 let cards = []
 
@@ -39,19 +39,6 @@ let score = 0
 let gameObj = {}
 
 const localStorageGameKey = "HTA"
-
-/* <div class="card">
-    <div class="card-inner">
-        <div class="card-front">
-            <img src="D:/Project/Hunt The Ace/jack.png" alt="" class="card-img">
-        </div>
-        <div class="card-back">
-            <img src="D:/Project/Hunt The Ace/card-back-Blue.png" alt="" class="card-img">
-        </div>
-    </div>
-</div> */
-
-
 
 loadGame()
 
